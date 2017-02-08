@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body ng-app="personApp" >
-    <main class="container" ng-controller="PersonController">
+    <main class="container" ng-controller="PersonController as peeps">
       <h1>So People Right</h1>
       <!-- Submit a person -->
       <section id="personSubmission" class="row">
@@ -28,6 +28,7 @@
               <label for="currentPersonLastName">Last Name:</label>
               <input type="text" id="currentPersonLastName" name="lastName" />
               <button>Submit</button>
+              <!-- ng-click = "peeps.getName(person)" -->
             </div>
 
           </div>
@@ -36,16 +37,18 @@
       <!-- See submitted people -->
       <section id="persons" class="row">
         <h2>Person Listing</h2>
-        <div id="personList">
+        <div ng-repeat="uPerson in peeps.person"id="personList">
           <div class="person row">
             <div class="three columns">
               <label for="firstName">First Name:</label>
-              <input type="text" id="firstName" name="firstName" />
+              <input ng-model= "uPerson.firstName" type="text" id="firstName" name="firstName"/>
+              {{uPerson.firstName}}
+              {{uPerson.lastName}}
             </div>
 
             <div class="nine columns">
               <label for="lastName">Last Name:</label>
-              <input type="text" id="lastName" name="lastName" />
+              <input ng-model= "uPerson.lastName" type="text" id="lastName" name="lastName" />
               <button class="update">Update</button>
               <button class="delete">Delete</button>
             </div>
