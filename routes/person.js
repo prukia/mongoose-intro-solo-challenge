@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   console.log('Req body', req.body);
   var person = new Person(req.body);
-
+  // [req.body.firstName, req.body.lastName];
   person.save(function (err) {
     if (err) {
       console.log('Error saving', err);
