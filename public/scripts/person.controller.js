@@ -24,6 +24,12 @@ app.controller('PersonController', function (PersonService) {
 
     });
   };
+
+  vm.updateName = function () {
+    PersonService.updateName().then(function (){
+      console.log('updating person');
+    })
+  }
   vm.getName();
 
 
