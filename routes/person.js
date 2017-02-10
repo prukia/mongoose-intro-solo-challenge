@@ -29,11 +29,12 @@ router.post('/', function (req, res) {
 });
 
 // @TODO: Complete this route using Person.findByIdAndUpdate
-router.put('/:id', function (req, res) {
-  var id = req.params.id
+router.put('/', function (req, res) {
+  var id = req.body._id;
+  var person= new Person(req.body);
   console.log('id received', id);
 
-  Person.findByIdAndUpdate(id, function (err){
+  Person.findByIdAndUpdate(id, person, function (err){
     if (err) {
       res.sendStatus(500);
       return;

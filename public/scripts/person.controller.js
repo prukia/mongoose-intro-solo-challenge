@@ -25,11 +25,19 @@ app.controller('PersonController', function (PersonService) {
     });
   };
 
-  vm.updateName = function () {
-    PersonService.updateName().then(function (){
-      console.log('updating person');
-    })
-  }
+  vm.updateName = function (first, last, id) {
+    PersonService.updateName(first, last, id).then(function (people){
+      console.log('updating person', id);
+      vm.getName();
+    });
+  };
+
+  vm.deleteName = function (id) {
+    PersonService.deleteName(id).then(function (people){
+      console.log('deleting person', id);
+      vm.getName();
+    });
+  };
   vm.getName();
 
 

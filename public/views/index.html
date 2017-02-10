@@ -37,7 +37,7 @@
       <!-- See submitted people -->
       <section id="persons" class="row">
         <h2>Person Listing</h2>
-        <div ng-repeat="uPerson in peeps.person"id="personList">
+        <div ng-repeat="uPerson in peeps.person" id="personList">
           <div class="person row">
             <div class="three columns">
               <label for="firstName">First Name:</label>
@@ -49,8 +49,8 @@
             <div class="nine columns">
               <label for="lastName">Last Name:</label>
               <input ng-model= "uPerson.lastName" type="text" id="lastName" name="lastName" />
-              <button class="update">Update</button>
-              <button class="delete">Delete</button>
+              <button ng-click="peeps.updateName(uPerson.firstName, uPerson.lastName, uPerson._id)" class="update">Update</button>
+              <button ng-click="peeps.deleteName(uPerson._id)" class="delete">Delete</button>
             </div>
           </div>
         </div>

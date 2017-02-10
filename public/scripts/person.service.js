@@ -31,12 +31,16 @@ app.service('PersonService', function ($http) {
     });
   };
 
-  this.updateName = function (firstName, lastName){
-    console.log('update person');
+  this.updateName = function (first, last, id){
+    console.log('update person', first + " " + last + id);
     return $http({
       method: 'PUT',
-      url: '/person/' + id,
-      // data:
+      url: '/person',
+      data: {
+        firstName:first,
+        lastName: last,
+        _id: id
+      }
     }).then(function (response){
       console.log('Successfully updated person', response);
     }).catch (function (err){
